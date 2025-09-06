@@ -2,11 +2,8 @@ import './globals.css'
 import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
+import Header from './components/Header'
 import LoadingSpinner from './components/LoadingScreen'
-
-const Header = dynamic(() => import('./components/Header'), {
-  loading: () => <LoadingSpinner />
-})
 
 const Footer = dynamic(() => import('./components/Footer'), {
   loading: () => <LoadingSpinner />
@@ -32,9 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen relative`}>
         <LoadingScreen />
-        <Suspense fallback={<LoadingSpinner />}>
-          <Header />
-        </Suspense>
+        <Header />
         <main className="flex-grow bg-background text-foreground">{children}</main>
         <Suspense fallback={<LoadingSpinner />}>
           <Footer />

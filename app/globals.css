@@ -64,6 +64,18 @@ body {
   .neumorphism-inset {
     @apply bg-secondary shadow-[inset_5px_5px_10px_#d9dade,inset_-5px_-5px_10px_#ffffff];
   }
+  
+  /* Fix for navigation bar consistency */
+  .nav-header {
+    will-change: background-color, backdrop-filter;
+  }
+  
+  /* Ensure backdrop blur works on all browsers */
+  .backdrop-blur-fallback {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }
 
 .modal-open {
